@@ -1,5 +1,4 @@
-# cd C:\Users\peter\AppData\Local\Programs\Python\Python38\Scripts
-# esphome C:\Users\peter\Documents\esphome\esp_irrigation.yaml run
+
 substitutions:
   devicename: esp_irrigation
   friendlyname: Irrigation
@@ -13,11 +12,11 @@ esphome:
 
 wifi:
   networks:
-# Buce St
-  - ssid: WiFi-1F9F
-    password: '40069043'
-# Minerva Cres
-  - ssid: ORBI21
+#
+  - ssid: WiFi-####
+    password: '######'
+#
+  - ssid: ORB###
     password: !secret wifi_pw
     manual_ip:
       static_ip: 192.168.1.110
@@ -66,30 +65,6 @@ binary_sensor:
   device_class: moisture
   filters: 
   - delayed_on_off: 500ms
-
-
-#sensor:
-#  - platform: adc
-#    pin: A0
-#    name: $friendlyname Moisture (Analog)
-#    id: irrigation_moisture
-#    icon: mdi:water-percent
-#    unit_of_measurement: "%"
-#    update_interval: 60s
-#    filters:
-#    - lambda: return (1 - x) * 100;
-
-#  - platform: bme280
-#    temperature:
-#      name: $friendlyname Temperature
-#      oversampling: 16x
-#    pressure:
-#      name: $friendlyname Pressure
-#    humidity:
-#      name: $friendlyname Humidity
-#    address: 0x76
-#    update_interval: 60s
-
 
 switch:
   - platform: template
